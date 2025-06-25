@@ -16,8 +16,11 @@ public class MenuTest {
 				
 	    System.out.print("메뉴를 선택해주세요(숫자) > ");
 		String menuNumber = scan.next();
+
 		
-		System.out.println("선택한 메뉴 :" + menuNumber);
+		System.out.print("선택한 메뉴 :" + menuNumber);
+		
+		
 		
 	}
 
