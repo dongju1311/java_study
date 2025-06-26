@@ -51,7 +51,5 @@ public class SwitchTest {
 				System.out.println("준비중입니다.");
 		}
 			System.out.println("--종료--");
-
 	}
-
 }

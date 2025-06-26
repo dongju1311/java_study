@@ -28,14 +28,10 @@ public class IfTest {
 		
 		//합격 여부 출력 : 60점 이상의 점수를 획득한 경우에만 출력
 		if(score >= 60) { System.out.println("합격");
-			
 		} else {
 			System.out.println("불합격");
 		}
-		
-		
 		System.out.println("--시험종료--");
-
 	}
 
 }
