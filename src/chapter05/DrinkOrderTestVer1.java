@@ -13,6 +13,8 @@ public class DrinkOrderTestVer1 {
 		boolean payment = true;
 		int menuPrice = 0;
 		String menuPriceOutPut = "";
+		String chargeOutPut = "";
+		String changeOutPut = "";
 		int charge = 0;
 		int change = 0;
 		
@@ -57,6 +59,8 @@ public class DrinkOrderTestVer1 {
 			if(scan.hasNextInt()) {
 				charge += scan.nextInt();
 				System.out.println("총 입금 금액 " + charge + "원 입니다.");
+				chargeOutPut = String.format("%,d", new Object[] {Integer.valueOf(charge)});
+				changeOutPut = String.format("%,d", new Object[] {Integer.valueOf(change)});
 				if(charge >= menuPrice) {
 					change = charge - menuPrice;
 				} else {
