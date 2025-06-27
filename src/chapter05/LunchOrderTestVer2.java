@@ -20,6 +20,7 @@ public class LunchOrderTestVer2 {
 		System.out.println("\t 9. 나가기");
 		System.out.println("**************************************");
 		
+		
 		Scanner scan = new Scanner(System.in);
 		int menuNum = -1;
 		String menuName = "";
