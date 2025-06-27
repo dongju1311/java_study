@@ -10,9 +10,11 @@ public class DrinkOrderTestVer1 {
 		int menuNu = -1;
 		String menuName = "";
 		boolean menuFlag = true;
-		boolean payMent = true;
+		boolean payment = true;
 		int menuPrice = 0;
 		String menuPriceOutPut = "";
+		int charge = 0;
+		int change = 0;
 		
 		//step 1. 메뉴판 출력
 		System.out.println("[시작]");
@@ -46,18 +48,29 @@ public class DrinkOrderTestVer1 {
 				scan.next();
 			}// if
 		}// while-menuFlag
-		System.out.println("=> 주문 메뉴 :" +menuNu+ "결제 예정 금액 " +menuPrice+ "입니다.");
+		System.out.println("=> 주문 메뉴 : " +menuNu+ " 결제 예정 금액 " +menuPrice+ "입니다.");
 		System.out.println("---step1종료---");
 		//step 3. 결제기능
-		while(payMent) {
+		while(payment) {
+			payment = false;
 			System.out.print("결제할 금액 입력 > ");
 			if(scan.hasNextInt()) {
-				
+				charge += scan.nextInt();
+				System.out.println("총 입금 금액 " + charge + "원 입니다.");
+				if(charge >= menuPrice) {
+					change = charge - menuPrice;
+				} else {
+					payment = true;
+					System.out.println("금액이 부족합니다. 다시 입력해주세요.");					
+				}
 			} else {
-			}//if
-		}//while
-		
-		
+				System.out.println("올바르지 않은 입력값입니다.");
+				scan.next();
+			}// if
+		}// while
+		System.out.println("결제완료! 잔돈 " + change + " 원 입니다.");
+		System.out.println("[종료]");
+		System.out.println("[이용해주셔서 감사합니다.]");
 	}// main
 
 }// class
