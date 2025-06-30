@@ -13,7 +13,7 @@ public class ArrayOfForTest {
 		}
 			System.out.println();
 			
-		// 향상된 for문을 이용하여 출력
+		// 향상된 for문을 이용하여 출력ㄴ
 		for(int number : nlist) {
 			System.out.print(number+"\t");
 		}
