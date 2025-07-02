@@ -126,6 +126,7 @@ public class LunchOrderTest3 {
 					}
 					break;
 				case 3: //음식결제
+					if(paymentCount !=0) {
 					boolean paymentFlag = true;
 					int charge = 0;
 					int change = 0;
@@ -180,8 +181,10 @@ public class LunchOrderTest3 {
 					
 					count=0;
 					paymentCount++;
+					}
 					break;
-				case 4:
+				case 4://결제 내역
+					if(paymentCount !=0) {
 					System.out.println("--------------------------------------------");
 					System.out.println("주문메뉴\t\t결제금액\t입금액\t잔돈");
 					System.out.println("--------------------------------------------");
@@ -191,6 +194,10 @@ public class LunchOrderTest3 {
 						System.out.print(totalAmountList[i]+"\t");
 						System.out.print(paidAmountList[i]+"\t");
 						System.out.print(changeList[i]+"\n");
+					} 
+					System.out.println("--------------------------------------------");
+					} else {
+						System.out.println("=> 결제내역 없음!!");
 					}
 					break;
 				case 9:
