@@ -15,9 +15,9 @@ public class LunchOrderTestVer2 {
 		System.out.println("**************************************");
 		System.out.println("\tWelcome to Food Market");
 		System.out.println("**************************************");
-		System.out.println("\t 1. 햄버거(🍔):100\t 2. 피자(🍕):200");
-		System.out.println("\t 3. 라멘(🍜):300\t 4. 샐러드(🥗):400");
-		System.out.println("\t 9. 나가기");
+		System.out.println("\t1. 햄버거(🍔):100\t2. 피자(🍕):200");
+		System.out.println("\t3. 라멘(🍜):300\t4. 샐러드(🥗):400");
+		System.out.println("\t9. 나가기");
 		System.out.println("**************************************");
 		
 		
@@ -28,7 +28,7 @@ public class LunchOrderTestVer2 {
 		int charge = 0;
 		int change = 0;
 		boolean menuFlag = true;
-		boolean payment = true;
+		boolean paymentFlag = true;
 		
 		//1. 메뉴 준비
 		while(menuFlag) {
@@ -54,14 +54,14 @@ public class LunchOrderTestVer2 {
 		
 		//2. 주문 메뉴 결제
 		
-		while(payment) {
+		while(paymentFlag) {
 			System.out.print("결제할 요금 입력> ");
 				if(scan.hasNextInt()) {
 				charge += scan.nextInt();
 				System.out.println("=> 총 입력 금액 : " + charge);
 				if(charge >= menuPrice) {
 					change = charge - menuPrice;
-					payment = false;
+					paymentFlag = false;
 				} else {
 					System.out.println("=> 요금이 부족합니다.");
 				}
