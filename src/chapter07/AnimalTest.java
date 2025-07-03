@@ -8,6 +8,8 @@ public class AnimalTest {
 		//사자, 호랑이 객체 생성
 		Animal lion = new Animal();
 		Animal tiger = new Animal();
+		Animal giraffe = new Animal();
+		Animal elephant = new Animal();
 		
 		lion.name = "심바";
 		lion.age = 5;
@@ -21,8 +23,15 @@ public class AnimalTest {
 		System.out.println("tiger.name= " + tiger.name);
 		System.out.println("tiger.name= " + tiger.age);
 		
-		lion.sleep();
+		lion.sleep(); 
 		tiger.sleep();
+		
+		   
+		   giraffe.name = "기린이";
+		   elephant.name = "코순이";
+		   
+		   System.out.println("giraffe.name = " + giraffe.name);
+		   System.out.println("elephant.name = " + elephant.name);
 
 	}
 
