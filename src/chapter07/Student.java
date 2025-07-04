@@ -1,7 +1,7 @@
 package chapter07;
 
 public class Student {
-	//Field
+	//Field 전역변수
 	String name;
 	int kor, eng, math;
 	//Constructor
