@@ -132,7 +132,7 @@ public class ScoreMgmSystem {
 		System.out.println("학생정보를 검색하세요");
 //		System.out.print("학생명> ");
 //		String searchName = scan.next();
-		int searchIdx = searchIndex("수정");
+		int searchIdx = searchIndex("[검색]");
 //		for(int i=0;i<count;i++) {
 //			Student student = sList[i];
 //			if(student.name.equals(searchName)) searchIdx = i; 
@@ -159,6 +159,18 @@ public class ScoreMgmSystem {
 		}
 		}
 	}
+	
+	public int modifyIndex() {
+		System.out.print("[삭제]학생명> ");
+		String modifyName = scan.next();
+		int modiIdx = -1;
+		for(int i=0;i<count;i++) {
+			Student student = sList[i];
+			if(student.name.equals(modifyName)) modiIdx = i;
+		}
+		return modiIdx;
+	}
+	
 	public void update() {
 		if(count != 0) {
 		System.out.println("수정할 학생정보를 검색하세요");

@@ -23,12 +23,12 @@ public class LunchOrderTest3 {
 		boolean menuFlag = true;
 		
 		//주문 음식 리스트
-		System.out.print("주문 리스트 크기> ");
-		final int MAX_SIZE = scan.nextInt();
 		String[] menuList = {"햄버거(🍔)","피자(🍕)","라멘(🍜)","샐러드(🥗)"};
 		int[] priceList = {100,200,300,400};
 		
 		//주문 리스트 선언 및 생성
+		System.out.print("주문 리스트 크기> ");
+		final int MAX_SIZE = scan.nextInt();
 		String[] orderMenuList = new String[MAX_SIZE];
 		int [] orderPriceList = new int[MAX_SIZE];
 		int count = 0;
@@ -134,10 +134,10 @@ public class LunchOrderTest3 {
 					for(int i=0;i<count;i++) {
 						totalPayment += orderPriceList[i];
 					}
-					System.out.println("=> 결제 예정 금액 : " + totalPayment);
-					System.out.print("결제할 요금 입력> ");
 					while(paymentFlag) { //결제 요금 부족시 반복 실행
 						//결제 예정 금액 출력 : orderPriceList
+						System.out.println("=> 결제 예정 금액 : " + totalPayment);
+						System.out.print("결제할 요금 입력> ");
 						
 							if(scan.hasNextInt()) {
 							charge += scan.nextInt();
