@@ -1,11 +1,10 @@
-package 실습;
+package lunch;
 
-public class Order {
+public class LunchMenu {
 	//Field
 	String name;
+	int price;
 	int no;
-	int qcy;
 	//Constructor
 	//Method
-
 }
