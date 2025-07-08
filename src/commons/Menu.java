@@ -1,16 +1,16 @@
-package vending_machine_ver1;
+package commons;
 
 public class Menu {
 	//Field
 	int no;
-	int price;
 	String name;
+	int price;
 	
 	//Constructor
 	public Menu() {
 		
 	}
-	public Menu(int no, int price, String name) {
+	public Menu(int no, String name, int price ) {
 		this.no = no;
 		this.name = name;
 		this.price = price;

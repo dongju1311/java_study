@@ -25,7 +25,9 @@ public class User {
 		}
 		return false;
 	}
-	
+	/*
+	 * 동전 입력
+	 */
 	public int insertCoin() {
 		int resultCoin = 0;
 		System.out.print("["+name+"]동전입력> ");
@@ -42,6 +44,9 @@ public class User {
 		}
 		return resultCoin;
 	}
+	/*
+	 * 메뉴 선택
+	 */
 	public int selectMenu() {
 		int menu = 0;
 		System.out.print("["+name+"]메뉴선택> ");
