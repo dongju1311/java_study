@@ -117,14 +117,4 @@ public class OrderSystem {
 	}
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }//class
