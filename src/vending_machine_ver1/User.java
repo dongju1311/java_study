@@ -18,13 +18,7 @@ public class User {
 	}
 	
 	//Method
-	public boolean coinCheck(int coin) {
-		boolean result = false;
-		if(coin == 100 || coin == 500) {
-			result = true;
-		}
-		return false;
-	}
+
 	/*
 	 * 동전 입력
 	 */
