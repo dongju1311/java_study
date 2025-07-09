@@ -49,7 +49,7 @@ public class User {
 		} else {
 			System.out.println("=> 올바르지 않은 값, 다시 입력해 주세요");
 			scan.next();
-			insertCoin();
+			selectMenu();
 		}
 		return menu;
 	}
