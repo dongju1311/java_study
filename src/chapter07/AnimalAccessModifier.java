@@ -12,6 +12,15 @@ public class AnimalAccessModifier {
 	static String sname; //static 변수, 클래스 변수
 	static int sage;
 	
+	final String fname = "홍길동";	//final 키워드 적용 => 외부에서 값을 변경할 수 없음!!
+	final int fage = 10;
+	
+	//상수 정의
+	public static final int START = 0;
+	public static final int CONTINUE = 1;
+	public static final int END = -1;
+	final public static int GOOD = 4; //순서 바뀌어도 상관 X
+	static final public int BAD = 5;
 	
 	//Constructor
 	public AnimalAccessModifier () {

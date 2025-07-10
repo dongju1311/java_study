@@ -1,10 +1,16 @@
 package chapter07;
 
 import commons.Animal;
+import java.util.Calendar;
 
 public class AnimalAccessModifierTest {
 
 	public static void main(String[] args) {
+		//Calendar 객체
+//		Calendar c = new Calendar();  //상속관계가 없으므로 객체 생성 불가!!
+		Calendar c = Calendar.getInstance();	//생성된 객체의 인스턴스주소를 가져옴, Singleton(싱글톤)
+		System.out.println(c.getTime());
+		
 		//static 변수, static 메소드 호출
 		AnimalAccessModifier.sname = "스태틱";
 		AnimalAccessModifier.sage = 10;
@@ -15,6 +21,15 @@ public class AnimalAccessModifierTest {
 		aam.sname = "스태틱2";
 		aam.age = 12;
 		aam.getInfo3();
+		
+		//final 변수 테스트
+//		aam.fname = "홍길순";		//final 키워드 변수는 외부에서 값을 변경 X
+//		aam.fage = 2;
+		
+		//상수 호출
+		int start = AnimalAccessModifier.START;
+		int con = AnimalAccessModifier.CONTINUE;
+		int end = AnimalAccessModifier.END;
 		
 		
 		Animal comDog = new Animal();
