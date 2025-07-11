@@ -1,19 +1,24 @@
-package kbank2;
+package kbank1;
 
-public class AccountVo {
+/**
+ * 은행에 비치되어 있는 입출금 용지
+ */
+
+public class AccountPaperVo {
+	//Field
 	private String name;
 	private String accountNumber;
 	private String password;
-	private int balance;
+	private int money;
+	private static AccountPaperVo accountpaper = new AccountPaperVo();
 	
-public AccountVo() {
+	//Constructor
+	private AccountPaperVo() {
 		
 	}
-	public AccountVo(String name, String accountNumber, String password, int balance) {
-		this.name = name;
-		this.accountNumber = accountNumber;
-		this.password = password;
-		this.balance = balance;
+	
+	public static AccountPaperVo getInstance() {
+		return accountpaper;
 	}
 	
 	//Method
@@ -35,12 +40,11 @@ public AccountVo() {
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	public int getBalance() {
-		return balance;
+	public int getMoney() {
+		return money;
 	}
-	public void setBalance(int balance) {
-		this.balance = balance;
+	public void setMoney(int money) {
+		this.money = money;
 	}
-	
 	
 }

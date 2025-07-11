@@ -1,7 +1,7 @@
 package kbank2;
 
 /**
- * 은행에 비치되어 있는 입출금 용지
+ * 입출금 용지
  */
 
 public class AccountPaperVo {
@@ -10,41 +10,75 @@ public class AccountPaperVo {
 	private String accountNumber;
 	private String password;
 	private int money;
-	private static AccountPaperVo accountpaper = new AccountPaperVo();
+	private static AccountPaperVo accountPaper = new AccountPaperVo();
+	
 	
 	//Constructor
 	private AccountPaperVo() {
 		
 	}
 	
+	private AccountPaperVo(String name, String accountNumber, String password, int money) {
+		this.name = name;
+		this.accountNumber = accountNumber;
+		this.password = password;
+		this.money = money;
+	}
+	
+	public static void showInfo() {
+		System.out.println("================================================");
+		System.out.print(accountPaper.getName() + "\t");
+		System.out.print(accountPaper.getAccountNumber() + "\t");
+		System.out.print(accountPaper.getPassword() + "\t");
+		System.out.print(accountPaper.getMoney() + "\n");
+		System.out.println("================================================");
+	}
+	
+
 	public static AccountPaperVo getInstance() {
-		return accountpaper;
+		return accountPaper;
 	}
 	
 	//Method
 	public String getName() {
 		return name;
 	}
+	
+	
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	
 	public String getAccountNumber() {
 		return accountNumber;
 	}
+	
+	
 	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
+	
+	
 	public String getPassword() {
 		return password;
 	}
+	
+	
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	
 	public int getMoney() {
 		return money;
 	}
+	
+	
 	public void setMoney(int money) {
 		this.money = money;
 	}
 	
+	
+
 }

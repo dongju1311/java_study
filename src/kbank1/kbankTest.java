@@ -1,4 +1,4 @@
-package kbank2;
+package kbank1;
 
 public class kbankTest {
 
@@ -9,7 +9,7 @@ public class kbankTest {
 		BankMan staffPark = new BankMan("박보검");
 		staffPark.showAccountList();
 		
-		Customer hong = new Customer("홍길동", "kb-1234", "1234", 100);
+		Customer hong = new Customer("null", "kb-1234", "1234", 100);
 		
 //		고객 홍길동이 출금용지에 이름, 계좌번호, 비밀번호를 작성함
 		hong.setAccoountpaper(accountpaper);
