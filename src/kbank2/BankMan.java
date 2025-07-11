@@ -15,6 +15,7 @@ public class BankMan {
 	
 	//Constructor
 	public BankMan() {
+		//고객계정 검색 - BankSystem > 잔고-금액
 		
 	}
 	public BankMan(String name, BankSystem kbsystem) {
@@ -71,8 +72,9 @@ public class BankMan {
 	/**
 	 * 고객의 출금정보 유효성 체크 : 고객에게 전달받은 출금용지에 빈값이 있는지 체크!!
 	 */
-	public void validateCheck(AccountPaperVo updateAccountPaper) {
-		System.out.println(this.name + "고객 정보에 대한 유효성 체크를 진행한다.");
+	public boolean validateCheck(AccountPaperVo updateAccountPaper) {
+		boolean result = false;
+		System.out.println(this.name + "고객 정보에 대한 유효성 체크를 재진행한다.");
 		this.accountPaper = updateAccountPaper;
 		
 		if(accountPaper.getName() == null) {
@@ -85,8 +87,44 @@ public class BankMan {
 			ask(ACCOUNT_MONEY);
 		} else {
 			//모두 입력되어 있음
-			
+			System.out.println(this.name + "입력이 완료되셨습니다.");
+			result = true;
 		}
+		return result;
+	}
+	
+	/**
+	 * 출금 요청 처리
+	 */
+	public void processWithdrawl() {
+		System.out.println(this.name + "출금요청 처리중입니다. 잠시만 기다려주세요");
+		int accountIdx = kbsystem.searchAccount(accountPaper);
+		if(accountIdx != -1) {
+			AccountVo account = kbsystem.accountList[accountIdx];
+			if(account.getBalance() >= accountPaper.getMoney()) {
+				//출금 진행 후 계좌 업데이트!!!
+				int money = account.getBalance() - accountPaper.getMoney();
+				account.setBalance(money);
+				kbsystem.accountList[accountIdx] = account;
+				
+				processCompleted();
+				
+			} else {
+				System.out.println(this.name + "잔액이 부족합니다.");
+			}
+		} else {
+			//고객정보가 일치하지 않음
+			System.out.println(this.name + "계좌정보가 일치하지 않습니다. 확인후 다시 진행해 주세요.");
+		}
+		
+	}
+	
+	/**
+	 * 
+	 */
+	public void processCompleted() {
+		System.out.println(this.name + " 출금처리가 완료되었습니다!");
+		System.out.println(this.name + " 출금액은 " + accountPaper.getMoney());
 	}
 	
 	public AccountPaperVo getAccountPaper() {
@@ -94,7 +132,7 @@ public class BankMan {
 	}
 	public void setAccountPaper(AccountPaperVo accountPaper) {
 		this.accountPaper = accountPaper;
-		System.out.println(this.name + " 손님에게 출금용지 받음!");
+		System.out.println(this.name + " 고객에게 출금용지 받음!");
 	}
 	public AccountVo[] getAccountList() {
 		return accountList;
