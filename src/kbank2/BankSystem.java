@@ -88,7 +88,7 @@ public class BankSystem {
 				System.out.print(accountList[resultIdx].getPassword() + "\t");
 				System.out.print(accountList[resultIdx].getBalance()+ "\n");
 			System.out.println("================================================");
-			System.out.println("[BankSystem] 이용해주셔서 감사합니다..");
+			System.out.println("[BankSystem] 이용해주셔서 감사합니다.");
 		} else {
 			System.out.println("[BankSystem] 일치하는 고객정보가 없습니다.");
 		}
