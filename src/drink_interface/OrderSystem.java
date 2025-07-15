@@ -1,4 +1,4 @@
-package drink;
+package drink_interface;
 
 import java.util.Scanner;
 
@@ -9,7 +9,7 @@ public class OrderSystem {
 	String title;
 	String[] names = {"☕ 아메리카노", "🍵 바닐라 라떼", "🥤 딸기 쉐이크 "};
 	int[] price = {2800,3500,4000};
-	Menu[] menuList = new Menu[names.length];
+	Menu[] menuList = new MenuItem[names.length];
 	Scanner scan = new Scanner(System.in);
 	Order order;
 	Payment payment;
@@ -66,7 +66,7 @@ public class OrderSystem {
 		if(scan.hasNextInt()) {
 			payment.setAmount(scan.nextInt());
 			System.out.println("=> 총 입금 금액 : " + payment.getAmount());
-			if(payment.getPayment(order.orderMenu.price)) {
+			if(payment.getPayment(order.orderMenu.getPrice())) {
 				//결제 완료
 				System.out.println("=> 결제 완료!!" + " 잔돈: " + payment.getChange());
 				showMenu();
@@ -86,7 +86,7 @@ public class OrderSystem {
 	public Menu searchMenu(int menuNo) {
 		Menu menu = null;
 		for(Menu m:menuList) { //menuList[0] --> m --> Menu(아메리카노);
-			if(m.no == menuNo) {
+			if(m.getNo() == menuNo) {
 				menu = m;
 				break;
 			}
@@ -100,9 +100,9 @@ public class OrderSystem {
 		System.out.println(" ☕🍵🥤 "+ title + " Coffee Menu");
 		System.out.println("=====================================");
 		for(Menu menu:menuList) {
-			System.out.print(menu.no + ".\t");
-			System.out.print(menu.name + "\t\t");
-			System.out.print(String.format("%,d", menu.price) + "원\n");
+			System.out.print(menu.getNo() + ".\t");
+			System.out.print(menu.getName() + "\t\t");
+			System.out.print(String.format("%,d", menu.getPrice()) + "원\n");
 		}
 		System.out.println("=====================================");
 		//일반 for문 사용
@@ -113,7 +113,7 @@ public class OrderSystem {
 	
 	public void createMenuList() {
 		for(int i=0; i<names.length;i++) {
-			Menu menu = new Menu((i+1), price[i], names[i]);
+			Menu menu = new MenuItem((i+1), price[i], names[i]);
 			menuList[i] = menu;
 		}
 	}
