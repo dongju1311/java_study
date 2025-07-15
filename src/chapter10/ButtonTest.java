@@ -61,13 +61,6 @@ public class ButtonTest {
 			public void windowOpened(WindowEvent e) {}
 			
 		});
-		
-		
-		
-		
-		
-		
-		
 	}//main
 /**
  * 버튼의 이벤트 처리 클래스
