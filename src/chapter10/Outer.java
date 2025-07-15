@@ -5,7 +5,7 @@ public class Outer {
 	
 	//Inner class
 	static class Inner {
-		String name = "이순신";
+		static String name = "이순신";
 	}
 		
 }
