@@ -12,7 +12,10 @@ public class StringBufferTest {
 		StringBuffer sb = new StringBuffer();
 		sb.append("홍길동");
 		sb.append("은 자바를");
-		sb.append(" 열심히 공부한");
+		sb.append(" 열심히 공부한다");
+		
+		System.out.println(sb.capacity());
+		System.out.println(sb);
 		System.out.println(sb.toString());
 
 	}
