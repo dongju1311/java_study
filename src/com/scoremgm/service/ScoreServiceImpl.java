@@ -23,6 +23,7 @@ public class ScoreServiceImpl implements ScoreService{
 	
 	/**
 	 * 학생 정보 임시 저장 객체 생성
+	 * @return List
 	 */
 	public List createMemberInfo() {
 		String[] labels = {"학생명","전공","국어","영어","수학"};
@@ -42,6 +43,23 @@ public class ScoreServiceImpl implements ScoreService{
 		}
 		return memberInfo;
 	}
+	/**
+	 * 학생 정보 임시 저장 객체 생성
+	 * @param no 학번
+	 * @return List
+	 */
+	public List createMemberInfo(Member member) {
+		String[] labels = {"국어","영어","수학"};
+		List memberInfo = new ArrayList();
+		System.out.println("학번 : " + member.getNo() + ", "+ "학생명 : "+ member.getName());
+		for(int i=0;i<labels.length;i++) {
+				System.out.print(labels[i] + "> ");
+				memberInfo.add(scan.nextInt());
+		}
+		return memberInfo;
+	}
+	
+	
 	/**
 	 * 학생정보 저장소(storage)의 갯수 가져오기
 	 */
@@ -85,7 +103,10 @@ public class ScoreServiceImpl implements ScoreService{
 	public void list() {
 		if(getCount() != 0) {
 		List<Member> list = repository.findAll();
-		list.forEach((member) -> {
+		System.out.println("-------------------------------------------");
+		System.out.println("학번\t이름\t전공\t국어\t영어\t수학");
+		System.out.println("-------------------------------------------");
+			list.forEach((member) -> {
 			System.out.print(member.getNo() +" \t");
 			System.out.print(member.getName() +" \t");
 			System.out.print(member.getDepartment() +" \t");
@@ -93,15 +114,110 @@ public class ScoreServiceImpl implements ScoreService{
 			System.out.print(member.getEng() +" \t");
 			System.out.print(member.getMath() +" \n");
 		});
+			System.out.println("-------------------------------------------");
 		} else {
 			System.out.println("=> 등록된 학생이 없습니다.");
-			sms.showMenu();
-			sms.selectMenu();
+		}
+		sms.showMenu();
+		sms.selectMenu();
+	}
+	/**
+	 * 검색 : 학번 기준
+	 */
+	@Override
+	public void search() {
+		if(getCount() != 0) {
+			System.out.print("학번(뒤4자리)> ");
+			String no = scan.next();
+			Member member = repository.find(no);
+			
+			if(member != null) {
+				System.out.println("=> 검색결과");
+				System.out.println("-------------------------------------------");
+				System.out.println("학번\t이름\t전공\t국어\t영어\t수학");
+				System.out.println("-------------------------------------------");
+				System.out.print(member.getNo() +" \t");
+				System.out.print(member.getName() +" \t");
+				System.out.print(member.getDepartment() +" \t");
+				System.out.print(member.getKor() +" \t");
+				System.out.print(member.getEng() +" \t");
+				System.out.print(member.getMath() +" \n");
+				System.out.println("-------------------------------------------");
+			} else {
+				System.out.println("=> 학생 정보 없음!!");
+			}
+			} else {
+				System.out.println("=> 등록된 학생이 없습니다.");
+			}
+		sms.showMenu();
+		sms.selectMenu();
+	}
+	
+	@Override
+	public void update() {
+		if(getCount() != 0) {
+			System.out.print("학번(뒤4자리)> ");
+			String no = scan.next();
+			Member member = repository.find(no); //학생 기존 정보
+			
+			if(member != null) {
+				//수정할 학생 정보 입력!! 학번 제외!!
+				List memberInfo = createMemberInfo(member);
+				member.setKor((int)memberInfo.get(0));
+				member.setEng((int)memberInfo.get(1));
+				member.setMath((int)memberInfo.get(2));
+				
+				//storage에 member 업데이트
+				repository.update(member);
+				
+				
+				System.out.println("=> 수정 결과");
+				System.out.println("-------------------------------------------");
+				System.out.println("학번\t이름\t전공\t국어\t영어\t수학");
+				System.out.println("-------------------------------------------");
+				System.out.print(member.getNo() +" \t");
+				System.out.print(member.getName() +" \t");
+				System.out.print(member.getDepartment() +" \t");
+				System.out.print(member.getKor() +" \t");
+				System.out.print(member.getEng() +" \t");
+				System.out.print(member.getMath() +" \n");
+				System.out.println("-------------------------------------------");
+			} else {
+				System.out.println("=> 학생 정보 없음!!");
+			}
+			} else {
+				System.out.println("=> 등록된 학생이 없습니다.");
+			}
+		sms.showMenu();
+		sms.selectMenu();
+	}
+	
+	/**
+	 * 삭제
+	 */
+	@Override
+	public void delete() {
+		if(getCount() != 0) {
+			System.out.print("학번(뒤4자리)> ");
+			String no = scan.next();
+			Member member = repository.find(no); //학생 기존 정보
+			
+			if(member != null) {
+				//정말로 삭제 진행 여부 확인
+				System.out.print("정말로 삭제하시겠습니까(y:삭제, 아무키:취소)?");
+				if(scan.next().equals("y")) {
+					repository.remove(no);
+					System.out.println("=> 삭제완료");
+				}
+				
+				
+			} else {
+				System.out.println("=> 등록된 학생이 없습니다.");
+			}
+		sms.showMenu();
+		sms.selectMenu();
 		}
 	}
-	public void search() {}
-	public void update() {}
-	public void delete() {}
 	@Override
 	public void exit() {
 		System.out.println("=> 프로그램 종료!!");
