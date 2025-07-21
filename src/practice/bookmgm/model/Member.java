@@ -1,4 +1,4 @@
-package com.scoremgm.model;
+package practice.bookmgm.model;
 
 public class Member {
 	private String no;
@@ -57,5 +57,6 @@ public class Member {
 	public void setMath(int math) {
 		this.math = math;
 	}
+	
 	
 }
