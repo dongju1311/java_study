@@ -59,16 +59,16 @@ public class ScoreMgmSystem {
 				break;
 			case LIST:
 				service.list();
-				break;
-			case SEARCH:
-				service.search();
-				break;
-			case UPDATE:
-				service.update();
-				break;
-			case DELETE:
-				service.delete();
-				break;
+//				break;
+//			case SEARCH:
+//				service.search();
+//				break;
+//			case UPDATE:
+//				service.update();
+//				break;
+//			case DELETE:
+//				service.delete();
+//				break;
 			case EXIT:
 				service.exit();
 				break;
