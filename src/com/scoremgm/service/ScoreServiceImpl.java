@@ -194,7 +194,7 @@ public class ScoreServiceImpl implements ScoreService{
 //		sms.showMenu();
 //		sms.selectMenu();
 //	}
-//	
+	
 //	/**
 //	 * 삭제
 //	 */
