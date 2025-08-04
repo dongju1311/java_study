@@ -66,3 +66,11 @@ from book_aladin;
 set new.bid = concat('B',lpad((max_code+1),3,'0'));
 end $$
 delimiter ;     
+
+select * from book_tj;
+select * from book_aladin;
+select * from book_yes24;
+
+show status like 'threads_connected';
+show processlist;
+show variables like 'max_connections';
