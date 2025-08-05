@@ -1,13 +1,12 @@
 package chapter21_mini_project.model;
 
-public class BooksVo {
+public class BookVo {
 	private int rno;
 	private String bid;
-	private String bname;
-	private int price;
+	private String title;
 	private String author;
-	private String binfo;
-	private String department;
+	private int price;
+	private int isbn;
 	private String bdate;
 	public int getRno() {
 		return rno;
@@ -21,17 +20,11 @@ public class BooksVo {
 	public void setBid(String bid) {
 		this.bid = bid;
 	}
-	public String getBname() {
-		return bname;
+	public String getTitle() {
+		return title;
 	}
-	public void setBname(String bname) {
-		this.bname = bname;
-	}
-	public int getPrice() {
-		return price;
-	}
-	public void setPrice(int price) {
-		this.price = price;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getAuthor() {
 		return author;
@@ -39,17 +32,17 @@ public class BooksVo {
 	public void setAuthor(String author) {
 		this.author = author;
 	}
-	public String getBinfo() {
-		return binfo;
+	public int getPrice() {
+		return price;
 	}
-	public void setBinfo(String binfo) {
-		this.binfo = binfo;
+	public void setPrice(int price) {
+		this.price = price;
 	}
-	public String getDepartment() {
-		return department;
+	public int getIsbn() {
+		return isbn;
 	}
-	public void setDepartment(String department) {
-		this.department = department;
+	public void setIsbn(int isbn) {
+		this.isbn = isbn;
 	}
 	public String getBdate() {
 		return bdate;
@@ -57,6 +50,7 @@ public class BooksVo {
 	public void setBdate(String bdate) {
 		this.bdate = bdate;
 	}
+	
 	
 	
 }

@@ -1,26 +1,48 @@
 package chapter21_mini_project.model;
 
 public class CartVo {
-	private String bname;
-	private String userName;
+
+	private int rno;
+	private String cid;
 	private int qty;
-	public String getBname() {
-		return bname;
+	private String mid;
+	private String bid;
+	private String cdate;
+	public int getRno() {
+		return rno;
 	}
-	public void setBname(String bname) {
-		this.bname = bname;
+	public void setRno(int rno) {
+		this.rno = rno;
 	}
-	public String getUserName() {
-		return userName;
+	public String getCid() {
+		return cid;
 	}
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setCid(String cid) {
+		this.cid = cid;
 	}
 	public int getQty() {
 		return qty;
 	}
 	public void setQty(int qty) {
 		this.qty = qty;
+	}
+	public String getMid() {
+		return mid;
+	}
+	public void setMid(String mid) {
+		this.mid = mid;
+	}
+	public String getBid() {
+		return bid;
+	}
+	public void setBid(String bid) {
+		this.bid = bid;
+	}
+	public String getCdate() {
+		return cdate;
+	}
+	public void setCdate(String cdate) {
+		this.cdate = cdate;
 	}
 	
 	

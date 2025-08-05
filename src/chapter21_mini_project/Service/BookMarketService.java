@@ -1,6 +1,7 @@
 package chapter21_mini_project.Service;
 
-public interface Service {
+public interface BookMarketService {
+	void menuGuestAdd();
 	void menuGuestInfo();
 	void menuCartItemList();
 	void menuCartClear();
